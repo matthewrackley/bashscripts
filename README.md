@@ -15,7 +15,7 @@
 		2. clrmetxt
 
 ## Script Explanation and What they do
-	1.**BUPS/Vim Wrapper**
+	1.**BUP/Vim Wrapper**
 		*This is a wrapper for vim which provides a simple backup system* 
 		*Each file type is given it's own folder in the user's home directory*
 		*It is clunky code and is definitely able to be improved upon.*
