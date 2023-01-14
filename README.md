@@ -1,7 +1,27 @@
-# Pornova 18+ LLC
+# Bash Scripts
 
-* Useful server build documentation
+* Potentially useful bash scripts made to provide: 
+	- A more organized structure
+	- A teaching tool
+	- Maybe even just a neat little artpiece.
 * Please Read through if there is any potential info you might need to use
-* This is built by using Apache, Debian, Wordpress, & Bookstack
+* These scripts are not guaranteed to be posix compliant. 
+	- They have only been tested on Debian and Kali..
 
-## Pornova
+## More scripts will eventually come along.
+### Below is the Current List of Scripts.
+#### *They have been ordered based on date of Creation*
+	1. BUPS/Vim Wrapper
+	2. clrmetxt
+
+## Explanation of Each Script and What they do
+	1.**BUPS/Vim Wrapper**
+		*This is a wrapper for vim which provides an organized backup system for each file type in the user's home directory*
+		*It is clunky code and is definitely able to be improved upon, but as of current it suit's my needs*
+	2.**ClrMeTxt**
+		*This is more of an artsy coding markdown design template.*
+		*It's main focus is on colorizing what you type*
+		*It turns what you type into a neat little html paper.*
+
+
+## ***Matthew Rackley***
