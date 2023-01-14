@@ -16,8 +16,10 @@
 
 ## Script Explanation and What they do
 	1.**BUPS/Vim Wrapper**
-		*This is a wrapper for vim which provides an organized backup system for each file type in the user's home directory*
-		*It is clunky code and is definitely able to be improved upon, but as of current it suit's my needs*
+		*This is a wrapper for vim which provides a simple backup system* 
+		*Each file type is given it's own folder in the user's home directory*
+		*It is clunky code and is definitely able to be improved upon.*
+		*As of current it suit's my needs and uses*
 	2.**ClrMeTxt**
 		*This is more of an artsy coding markdown design template.*
 		*It's main focus is on colorizing what you type*
