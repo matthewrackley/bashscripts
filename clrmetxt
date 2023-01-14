@@ -1,0 +1,81 @@
+#!/bin/bash
+rm "$HOME/output.html"
+if [[ ! -d "$HOME/Documents/clr" ]]; then
+    mkdir -p "$HOME/Documents/clr/tmp"
+fi
+ccdir="$HOME/Documents/clr"
+ccstyle="$ccdir/style.css"
+cctmp="$ccdir/tmp"
+ccinput="$cctmp/input"
+touch "$cctmp"/input
+if [ ! -f "$ccstyle" ]; then
+touch "$ccdir"/style.css
+cat<< EOF >"$ccstyle"
+.background {margin:5rem 27.5rem 0rem 27.5rem;background-color:white;}
+body {background-color:black;font-family:monospace;font-size:18px;border:1rem 1rem;padding:1rem 1rem;margin:1rem 1rem;}
+.text {margin:2rem;}
+b {color:blue;}
+r {color:red;}
+g {color:#00ff00;}
+y {color:yellow;}
+p {color:purple;}
+o {color:orange;}
+w {color:white;}
+c {color:cyan;}
+ooc {color:black;}
+cc {color:#00827F;}
+l {color:white;text-decoration:underline;}
+l:hover {color:red;text-decoration:underline;font-style:italic;}
+code {padding:1rem 1rem 1rem 1rem;font-size:90%;color:rgb(98, 206, 88);justify-content:center}
+pre {display:block;white-space:pre-wrap;width:100%;background-color:#141414;display:flex;border-style:inset;box-shadow:rgb(56, 29, 29);}
+EOF
+fi
+cat<< EOF >"$ccinput"
+<html>
+<head>
+<link rel="stylesheet" href="Documents/clr/style.css">
+<title>
+</head>
+<div class="background">
+<subtitle>
+<body>
+<div class="text">
+<desc>
+<pre>
+<code>                    
+EOF
+ccinput="$cctmp/input"
+usage() {
+    echo "$0 [path/to/file]"
+}
+if [ $# -gt 1 ]; then
+    echo "Invalid number of options specified"
+    usage
+    exit 1
+elif [ ! "$1" ]; then
+    echo "You must provide a file!"
+    usage
+    exit 1
+else
+TITLE=$(sed -i -r "s'^(Title=)(.*)$'<title>\2</title>'g" "$@")
+SUBTITLE=$(sed -i -r "s'^(Requires=)(.*)$'<subtitle>\2</subtitle>'g" "$@")
+DESCRIPTION=$(sed -i -r "s'^(Desc=)(.*)$'<desc>\2</desc>'g" "$@")
+grep --line-buffered '.*' "$1" >>"$ccinput"
+sed -i -r "s'^(<title>)$'"$TITLE"'g" "$ccinput"
+sed -i -r "s'^(<subtitle>)$'"$SUBTITLE"'g" "$ccinput"
+sed -i -r "s'^(<desc>)$'"$DESCRIPTION"'g" "$ccinput"
+sed -i -r "s'^(blue |b ){1}(.*)$'<b>\2</b>'g" "$ccinput"
+sed -i -r "s'^(red |r ){1}(.*)$'<r>\2</r>'g" "$ccinput"
+sed -i -r "s'^(green |g ){1}(.*)$'<g>\2</g>'g" "$ccinput"
+sed -i -r "s'^(yellow |y ){1}(.*)$'<y>\2</y>'g" "$ccinput"
+sed -i -r "s'^(purple |p ){1}(.*)$'<p>\2</p>'g" "$ccinput"
+sed -i -r "s'^(orange |o ){1}(.*)$'<o>\2</o>'g" "$ccinput"
+sed -i -r "s'^(white |w ){1}(.*)$'<w>\2</w>'g" "$ccinput"
+sed -i -r "s'^(cyan |c ){1}(.*)$'<c>\2</c>'g" "$ccinput"
+sed -i -r "s'^(link |l ){1}(.*)$'<g>\2</g>'g" "$ccinput"
+sed -i -r "s'^(OOC){1}(.*)(OOC)$'</code></pre>\ <ooc>\2</ooc>\ <pre>\ <code>'g" "$ccinput"
+sed -i -r "s'^(\#+.*)$'<cc>\1</cc>'g" "$ccinput"
+echo -e "</code>\n </pre>\n </div>\n </body>\n </div>\n </html>" >>"$ccinput"
+cat "$ccinput">"$HOME/output.html" 
+fi
+rm "$ccinput"
