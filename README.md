@@ -9,12 +9,12 @@
 	- They have only been tested on Debian and Kali..
 
 ## More scripts will eventually come along.
-### Below is the Current List of Scripts.
-#### *They have been ordered based on date of Creation*
-	1. BUPS/Vim Wrapper
-	2. clrmetxt
+	Below is the Current List of Scripts.
+	*They have been ordered based on date of Creation*
+		1. BUPS/Vim Wrapper
+		2. clrmetxt
 
-## Explanation of Each Script and What they do
+## Script Explanation and What they do
 	1.**BUPS/Vim Wrapper**
 		*This is a wrapper for vim which provides an organized backup system for each file type in the user's home directory*
 		*It is clunky code and is definitely able to be improved upon, but as of current it suit's my needs*
@@ -24,4 +24,4 @@
 		*It turns what you type into a neat little html paper.*
 
 
-## ***Matthew Rackley***
+# ***Matthew Rackley***
